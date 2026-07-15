@@ -34,27 +34,38 @@ const timeline = [
   "Monitoring & Evaluation",
 ];
 
-const challenges = [
+const stuntingTrend = [
+  { year: "2020", rate: 10.7, color: "from-[#1f6551] to-[#5bc29a]" },
+  { year: "2025", rate: 14.3, color: "from-[#cba34e] to-[#f6d58d]" },
+];
+
+const chartMax = Math.ceil(Math.max(...stuntingTrend.map((point) => point.rate)) / 5) * 5;
+const trendIncrease = (stuntingTrend[1].rate - stuntingTrend[0].rate).toFixed(1);
+
+const challengePreview = [
   {
-    title: "Challenge 1 – Community Awareness",
-    description: "Low awareness of nutritious, affordable meals and local food practices." ,
-    research: "Families reported limited access to practical, culturally rooted nutrition information.",
-    insight: "Short-form video content can quickly translate insight into habits.",
-    solution: "Deploy mobile-first nutrition stories in Kinyarwanda and English.",
+    title: "Challenge 01: Introduction",
+    description:
+      "Each member of the team created an elevator pitch and a group statement outlining what we hope to gain from E-LAB.",
+    findings:
+      "The team quickly built rapport and alignment around project goals, which improved collaboration and idea generation.",
+    insight: "Shared goals and clear communication strengthen team cohesion and accountability.",
   },
   {
-    title: "Challenge 2 – Household Food Security",
-    description: "Limited backyard production and reliance on costly, low-quality staples.",
-    research: "Small-space gardening and recycled container methods were highly feasible.",
-    insight: "Hands-on demonstrations improve adoption significantly.",
-    solution: "Launch backyard garden seminars using low-cost, local solutions.",
+    title: "Challenge 02: Discover Africa",
+    description:
+      "We selected an African community and shared untold stories, misconceptions, and unique strengths through creative media.",
+    findings:
+      "Our exploration of the Kamba people of Kenya highlighted resilience, cultural richness, and community-driven development.",
+    insight: "Storytelling can raise awareness, inspire empathy, and motivate practical action.",
   },
   {
-    title: "Challenge 3 – Women’s Voice and Leadership",
-    description: "Women are central to household health but often underrepresented in local planning.",
-    research: "Women-led learning circles increased trust, participation, and retention.",
-    insight: "Community ownership grows when mothers lead the conversation.",
-    solution: "Create women-centered peer-learning workshops and leadership pathways.",
+    title: "Challenge 03: HELP-LAB",
+    description:
+      "We chose a cause, acted in the community, and documented our impact journey through video.",
+    findings:
+      "Helping someone return home from hospital showed how meaningful small acts of care can be.",
+    insight: "Hands-on community action builds trust and turns learning into real impact.",
   },
 ];
 
@@ -63,11 +74,11 @@ export default function Home() {
     <div className="flex flex-col">
       <section className="relative isolate overflow-hidden rounded-[2rem] border border-white/10 bg-black/30 px-6 py-20 shadow-2xl shadow-emerald-950/30 sm:px-10 lg:px-16 lg:py-28">
         <img
-          src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=1400&q=80"
-          alt="Community health workers and families in a rural African setting"
-          className="absolute inset-0 h-full w-full object-cover opacity-35"
+          src="https://images.unsplash.com/flagged/photo-1555251255-e9a095d6eb9d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          alt="Rwandan children in a community learning environment"
+          className="absolute inset-0 h-full w-full object-cover object-center opacity-65"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#04110f] via-[#04110f]/90 to-[#04110f]/40" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#04110f]/70 via-[#04110f]/45 to-[#04110f]/25" />
         <div className="relative mx-auto flex max-w-7xl flex-col items-start justify-center gap-8 lg:min-h-[85vh]">
           <div className="inline-flex items-center gap-2 rounded-full border border-[#cba34e]/40 bg-white/10 px-4 py-2 text-sm text-amber-200 backdrop-blur">
             <span className="h-2.5 w-2.5 rounded-full bg-[#cba34e]" />
@@ -138,19 +149,42 @@ export default function Home() {
             </p>
           </div>
           <div className="rounded-[1.5rem] border border-white/10 bg-gradient-to-br from-[#0b2f28] to-[#03110f] p-6">
-            <div className="flex items-end justify-between gap-4">
-              <div className="flex-1">
-                <p className="text-sm text-slate-400">2020</p>
-                <div className="mt-2 h-24 rounded-t-xl bg-gradient-to-t from-[#1f6551] to-[#5bc29a]" style={{ width: "40%" }} />
-              </div>
-              <div className="flex-1">
-                <p className="text-sm text-slate-400">2025</p>
-                <div className="mt-2 h-36 rounded-t-xl bg-gradient-to-t from-[#cba34e] to-[#f6d58d]" style={{ width: "44%" }} />
-              </div>
+            <div className="flex items-start justify-between gap-4">
+              <p className="text-xs uppercase tracking-[0.18em] text-emerald-100/80">Stunting Trend</p>
+              <p className="rounded-full border border-[#cba34e]/30 bg-[#cba34e]/10 px-3 py-1 text-xs font-medium text-[#f2d08b]">
+                +{trendIncrease} percentage points
+              </p>
             </div>
-            <div className="mt-6 flex items-center justify-between pt-2 text-sm text-slate-300">
-              <span>10.7%</span>
-              <span>14.3%</span>
+
+            <div className="mt-5 grid h-56 grid-cols-[auto_1fr] gap-4">
+              <div className="flex h-full flex-col justify-between pb-7 text-[11px] text-slate-400">
+                {[chartMax, chartMax - 5, chartMax - 10, 0].map((tick) => (
+                  <span key={tick}>{tick}%</span>
+                ))}
+              </div>
+
+              <div className="relative h-full">
+                <div className="absolute inset-0 flex flex-col justify-between pb-7">
+                  {[0, 1, 2, 3].map((line) => (
+                    <div key={line} className="border-t border-white/10" />
+                  ))}
+                </div>
+
+                <div className="relative z-10 flex h-full items-end justify-around gap-4 pb-7">
+                  {stuntingTrend.map((point) => (
+                    <div key={point.year} className="flex w-full max-w-[110px] flex-col items-center">
+                      <div
+                        className={`w-full rounded-t-2xl bg-gradient-to-t ${point.color} shadow-lg shadow-black/25`}
+                        style={{ height: `${(point.rate / chartMax) * 100}%` }}
+                        role="img"
+                        aria-label={`${point.year} child stunting rate ${point.rate}%`}
+                      />
+                      <p className="mt-2 text-sm font-medium text-slate-200">{point.year}</p>
+                      <p className="text-xs text-[#f2d08b]">{point.rate}%</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -303,8 +337,8 @@ export default function Home() {
             </p>
           </div>
           <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
-            <div className="rounded-[1.5rem] border border-white/10 bg-gradient-to-br from-[#0f342b] to-[#071312] p-4">
-              <div className="rounded-[1rem] border border-white/10 bg-[#f8f5ea] p-4 text-[#04110f]">
+            <div className="rounded-3xl border border-white/10 bg-linear-to-br from-[#0f342b] to-[#071312] p-4">
+              <div className="rounded-2xl border border-white/10 bg-[#f8f5ea] p-4 text-[#04110f]">
                 <div className="h-2 w-24 rounded-full bg-[#cba34e]" />
                 <div className="mt-4 space-y-3">
                   <div className="h-3 w-full rounded-full bg-slate-200" />
@@ -316,7 +350,7 @@ export default function Home() {
             <div className="rounded-[1.5rem] border border-white/10 bg-gradient-to-br from-[#0f342b] to-[#071312] p-4">
               <div className="rounded-[1rem] border border-white/10 bg-[#f8f5ea] p-4 text-[#04110f]">
                 <div className="mx-auto h-36 w-24 rounded-[1.25rem] border border-slate-300 bg-white p-2">
-                  <div className="h-full rounded-[0.8rem] bg-gradient-to-br from-[#1f6551] to-[#cba34e]" />
+                  <div className="h-full rounded-[0.8rem] bg-linear-to-br from-[#1f6551] to-[#cba34e]" />
                 </div>
               </div>
             </div>
@@ -325,16 +359,26 @@ export default function Home() {
       </section>
 
       <section className="mx-auto w-full max-w-7xl px-6 py-20 sm:px-10 lg:px-16">
-        <div className="rounded-[2rem] border border-white/10 bg-[#081d19]/80 p-8">
-          <p className="text-sm uppercase tracking-[0.3em] text-[#cba34e]">E-LAB Challenges</p>
+        <div className="rounded-4xl border border-white/10 bg-[#081d19]/80 p-8">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="text-sm uppercase tracking-[0.3em] text-[#cba34e]">E-LAB Challenges</p>
+              <h2 className="mt-3 text-3xl font-semibold sm:text-4xl">Three highlights from our challenge journey.</h2>
+            </div>
+            <Link
+              href="/challenges"
+              className="inline-flex w-fit items-center rounded-full border border-[#cba34e]/40 bg-[#cba34e]/10 px-5 py-2.5 text-sm font-medium text-[#f2d08b] transition hover:-translate-y-0.5 hover:bg-[#cba34e]/20"
+            >
+              View All Challenges
+            </Link>
+          </div>
           <div className="mt-8 grid gap-6 lg:grid-cols-3">
-            {challenges.map((challenge) => (
+            {challengePreview.map((challenge) => (
               <div key={challenge.title} className="rounded-[1.4rem] border border-white/10 bg-white/10 p-6 backdrop-blur">
                 <h3 className="text-xl font-semibold">{challenge.title}</h3>
                 <p className="mt-3 text-slate-300">{challenge.description}</p>
-                <p className="mt-4 text-sm text-slate-400">Research: {challenge.research}</p>
-                <p className="mt-2 text-sm text-slate-400">Insight: {challenge.insight}</p>
-                <p className="mt-2 text-sm text-emerald-200">Solution: {challenge.solution}</p>
+                <p className="mt-4 text-sm text-slate-400">Research findings: {challenge.findings}</p>
+                <p className="mt-2 text-sm text-emerald-200">Key insight: {challenge.insight}</p>
               </div>
             ))}
           </div>
