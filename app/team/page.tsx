@@ -42,7 +42,7 @@ const team = [
     focus: "Strategic Partnerships",
     initials: "WM",
     accent: "from-[#0c231d] via-[#174d3e] to-[#cba34e]",
-    photo: "/william.jpeg",
+    photo: "/williams.jpeg",
     photoPosition: "50% 35%",
   },
   {
