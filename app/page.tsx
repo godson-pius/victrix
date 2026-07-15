@@ -196,7 +196,6 @@ export default function Home() {
               "Community Invitation",
               "Weekend Workshops",
               "Cooking Demonstrations",
-              "Backyard Gardens",
               "Healthier Families",
             ].map((step, index) => (
               <div key={step} className="flex items-center gap-3 rounded-full border border-emerald-900/50 bg-white/5 px-4 py-3">
