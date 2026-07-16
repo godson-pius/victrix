@@ -61,17 +61,17 @@ const team = [
 export default function TeamPage() {
   return (
     <div className="mx-auto w-full max-w-7xl px-2 py-10 sm:px-4 lg:px-6">
-      <div className="rounded-4xl border border-white/10 bg-black/25 p-8 shadow-2xl shadow-emerald-950/20 backdrop-blur">
-        <p className="text-sm uppercase tracking-[0.3em] text-[#cba34e]">Meet the Team</p>
+      <div className="surface-card rounded-4xl p-8 shadow-2xl">
+        <p className="text-sm uppercase tracking-[0.3em] text-[var(--accent)]">Meet the Team</p>
         <h1 className="mt-4 text-4xl font-semibold sm:text-5xl">A visionary collective building healthier futures.</h1>
-        <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-300">
+        <p className="mt-5 max-w-3xl text-lg leading-8 text-[var(--muted)]">
           Our team blends storytelling, technology, public health, and business leadership to scale meaningful change for families and communities.
         </p>
         <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {team.map((member) => (
-            <div key={member.name} className="group overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/10 backdrop-blur transition duration-300 hover:-translate-y-1 hover:border-[#cba34e]/40">
+            <div key={member.name} className="group overflow-hidden rounded-[1.75rem] border border-[var(--border)] bg-[var(--surface-soft)] backdrop-blur transition duration-300 hover:-translate-y-1 hover:border-[var(--accent)]/40">
               <div className={`h-2 w-full bg-linear-to-r ${member.accent}`} />
-              <div className="relative h-72 w-full bg-[#0b221c] sm:h-80">
+              <div className="relative h-72 w-full bg-[var(--surface)] sm:h-80">
                 {member.photo ? (
                   <>
                     <Image
@@ -95,14 +95,14 @@ export default function TeamPage() {
               </div>
               <div className="px-6 pb-6 pt-5">
                 <h2 className="text-2xl font-semibold">{member.name}</h2>
-                <p className="mt-2 text-sm uppercase tracking-[0.3em] text-[#cba34e]">{member.role}</p>
-                <div className="mt-4 inline-flex rounded-full border border-emerald-700/40 bg-[#0a241d] px-3 py-1 text-xs font-medium text-emerald-100">
+                <p className="mt-2 text-sm uppercase tracking-[0.3em] text-[var(--accent)]">{member.role}</p>
+                <div className="mt-4 inline-flex rounded-full border border-[var(--secondary)]/40 bg-[var(--secondary)]/10 px-3 py-1 text-xs font-medium text-[var(--secondary)]">
                   {member.focus}
                 </div>
-                <p className="mt-4 text-sm leading-7 text-slate-300">{member.bio}</p>
+                <p className="mt-4 text-sm leading-7 text-[var(--muted)]">{member.bio}</p>
                 <div className="mt-4 flex flex-wrap gap-2">
                   {member.skills.map((skill) => (
-                    <span key={skill} className="rounded-full border border-white/10 bg-white/10 px-3 py-1 text-xs text-slate-200">{skill}</span>
+                    <span key={skill} className="rounded-full border border-[var(--border)] bg-[var(--surface-strong)] px-3 py-1 text-xs text-[var(--foreground)]">{skill}</span>
                   ))}
                 </div>
               </div>

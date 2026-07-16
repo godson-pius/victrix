@@ -14,8 +14,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full scroll-smooth antialiased">
-      <body className="min-h-full bg-[#03110f] text-slate-100">
+    <html lang="en" suppressHydrationWarning className="h-full scroll-smooth antialiased">
+      <body className="min-h-full transition-colors duration-300">
         <SiteShell>{children}</SiteShell>
       </body>
     </html>

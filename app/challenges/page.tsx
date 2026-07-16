@@ -75,10 +75,10 @@ export default function ChallengesPage() {
 
   return (
     <div className="mx-auto w-full max-w-7xl px-2 py-10 sm:px-4 lg:px-6">
-      <div className="rounded-[2rem] border border-white/10 bg-black/25 p-8 shadow-2xl shadow-emerald-950/20 backdrop-blur">
-        <p className="text-sm uppercase tracking-[0.3em] text-[#cba34e]">E-LAB Challenges</p>
+      <div className="surface-card rounded-[2rem] p-8 shadow-2xl">
+        <p className="text-sm uppercase tracking-[0.3em] text-[var(--accent)]">E-LAB Challenges</p>
         <h1 className="mt-4 text-4xl font-semibold sm:text-5xl">Six challenges, one mission.</h1>
-        <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-300">
+        <p className="mt-5 max-w-3xl text-lg leading-8 text-[var(--muted)]">
           Each challenge is documented with research findings, key insights, and practical solutions that shape our implementation model.
         </p>
         <div className="mt-10 space-y-6">
@@ -87,14 +87,14 @@ export default function ChallengesPage() {
             const isActive = activeVideo === challenge.title;
 
             return (
-              <div key={challenge.title} className="rounded-[1.75rem] border border-white/10 bg-white/10 p-6 backdrop-blur">
+              <div key={challenge.title} className="surface-soft rounded-[1.75rem] p-6">
                 <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#cba34e] text-sm font-semibold text-[#03110f]">{index + 1}</div>
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--accent)] text-sm font-semibold text-[var(--accent-contrast)]">{index + 1}</div>
                   <h2 className="text-2xl font-semibold">{challenge.title}</h2>
                 </div>
-                <p className="mt-4 text-slate-300">{challenge.description}</p>
-                <p className="mt-4 text-sm text-slate-400">Research findings: {challenge.findings}</p>
-                <ul className="mt-4 space-y-2 text-sm text-slate-300">
+                <p className="mt-4 text-[var(--muted)]">{challenge.description}</p>
+                <p className="mt-4 text-sm text-[var(--muted)]">Research findings: {challenge.findings}</p>
+                <ul className="mt-4 space-y-2 text-sm text-[var(--foreground)]">
                   {challenge.insights.map((insight) => (
                     <li key={insight}>• {insight}</li>
                   ))}
@@ -105,7 +105,7 @@ export default function ChallengesPage() {
                     <button
                       type="button"
                       onClick={() => setActiveVideo(isActive ? null : challenge.title)}
-                      className="mt-4 inline-flex items-center rounded-full border border-emerald-400/30 bg-emerald-400/10 px-4 py-2 text-sm font-medium text-emerald-200 transition hover:bg-emerald-400/20"
+                      className="mt-4 inline-flex items-center rounded-full border border-[var(--secondary)]/30 bg-[var(--secondary)]/10 px-4 py-2 text-sm font-medium text-[var(--secondary)] transition hover:bg-[var(--secondary)]/20"
                     >
                       {isActive ? "Hide solution video" : "Play solution video"}
                     </button>
@@ -123,7 +123,7 @@ export default function ChallengesPage() {
                     )}
                   </>
                 ) : (
-                  <p className="mt-4 text-sm text-emerald-200">Proposed solution: {challenge.solution}</p>
+                  <p className="mt-4 text-sm text-[var(--secondary)]">Proposed solution: {challenge.solution}</p>
                 )}
               </div>
             );

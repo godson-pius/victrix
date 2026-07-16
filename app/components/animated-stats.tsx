@@ -24,12 +24,12 @@ export function AnimatedStats() {
   return (
     <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-5">
       {stats.map((stat, index) => (
-        <div key={stat.label} className="rounded-[1.5rem] border border-white/10 bg-white/10 p-6 text-center backdrop-blur">
-          <p className="text-3xl font-semibold text-[#f2d08b]">
+        <div key={stat.label} className="surface-card rounded-[1.5rem] p-6 text-center">
+          <p className="text-3xl font-semibold text-[var(--accent)]">
             {displayed[index].toLocaleString()}
             {stat.suffix}
           </p>
-          <p className="mt-3 text-sm leading-7 text-slate-300">{stat.label}</p>
+          <p className="mt-3 text-sm leading-7 text-[var(--muted)]">{stat.label}</p>
         </div>
       ))}
     </div>

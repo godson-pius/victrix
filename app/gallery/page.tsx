@@ -8,12 +8,12 @@ const galleryItems = [
 export default function GalleryPage() {
   return (
     <div className="mx-auto w-full max-w-7xl px-2 py-10 sm:px-4 lg:px-6">
-      <div className="rounded-[2rem] border border-white/10 bg-black/25 p-8 shadow-2xl shadow-emerald-950/20 backdrop-blur">
-        <p className="text-sm uppercase tracking-[0.3em] text-[#cba34e]">Gallery</p>
+      <div className="surface-card rounded-[2rem] p-8 shadow-2xl">
+        <p className="text-sm uppercase tracking-[0.3em] text-[var(--accent)]">Gallery</p>
         <h1 className="mt-4 text-4xl font-semibold sm:text-5xl">Stories of learning, care, and growth.</h1>
         <div className="mt-10 grid gap-6 md:grid-cols-2">
           {galleryItems.map((item) => (
-            <div key={item.title} className="overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/10 backdrop-blur">
+            <div key={item.title} className="overflow-hidden rounded-[1.75rem] border border-[var(--border)] bg-[var(--surface-soft)] backdrop-blur">
               <img src={item.image} alt={item.title} className="h-64 w-full object-cover" />
               <div className="p-6">
                 <h2 className="text-2xl font-semibold">{item.title}</h2>

@@ -2,8 +2,41 @@
 @import "tailwindcss";
 
 :root {
+  color-scheme: dark;
   --background: #03110f;
   --foreground: #f8f5ea;
+  --muted: #cbd5e1;
+  --surface: rgba(5, 26, 21, 0.82);
+  --surface-strong: rgba(3, 17, 15, 0.92);
+  --surface-soft: rgba(255, 255, 255, 0.08);
+  --border: rgba(255, 255, 255, 0.12);
+  --accent: #cba34e;
+  --accent-strong: #e0b452;
+  --accent-contrast: #04110f;
+  --secondary: #2f7a5c;
+  --shadow: rgba(1, 8, 10, 0.4);
+  --hero-overlay: linear-gradient(90deg, rgba(4, 17, 15, 0.86) 0%, rgba(4, 17, 15, 0.54) 60%, rgba(4, 17, 15, 0.28) 100%);
+  --ambient-overlay: radial-gradient(circle at 20% 10%, rgba(47, 122, 92, 0.24), transparent 20%),
+    radial-gradient(circle at 80% 20%, rgba(203, 163, 78, 0.18), transparent 18%);
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+  --background: #f6efe6;
+  --foreground: #173129;
+  --muted: #507067;
+  --surface: rgba(255, 252, 245, 0.82);
+  --surface-strong: rgba(255, 252, 245, 0.96);
+  --surface-soft: rgba(15, 36, 31, 0.06);
+  --border: rgba(15, 36, 31, 0.12);
+  --accent: #a7701d;
+  --accent-strong: #8a5611;
+  --accent-contrast: #f9f4eb;
+  --secondary: #2f7a5c;
+  --shadow: rgba(15, 23, 42, 0.16);
+  --hero-overlay: linear-gradient(90deg, rgba(247, 239, 223, 0.96) 0%, rgba(247, 239, 223, 0.74) 58%, rgba(247, 239, 223, 0.36) 100%);
+  --ambient-overlay: radial-gradient(circle at 15% 10%, rgba(47, 122, 92, 0.16), transparent 22%),
+    radial-gradient(circle at 80% 20%, rgba(203, 163, 78, 0.16), transparent 18%);
 }
 
 @theme inline {
@@ -22,11 +55,12 @@ html {
 }
 
 body {
-  background:
-    radial-gradient(circle at top left, rgba(203, 163, 78, 0.16), transparent 24%),
-    linear-gradient(135deg, #03110f 0%, #07221f 50%, #04110f 100%);
+  min-height: 100%;
+  background: radial-gradient(circle at top left, rgba(203, 163, 78, 0.16), transparent 24%),
+    linear-gradient(135deg, var(--background) 0%, color-mix(in srgb, var(--background) 82%, #0d2d24) 100%);
   color: var(--foreground);
   font-family: "Inter", sans-serif;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 body::before {
@@ -34,8 +68,7 @@ body::before {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  background: radial-gradient(circle at 20% 10%, rgba(47, 122, 92, 0.18), transparent 20%),
-    radial-gradient(circle at 80% 20%, rgba(203, 163, 78, 0.12), transparent 18%);
+  background: var(--ambient-overlay);
   z-index: -1;
 }
 
@@ -61,5 +94,34 @@ textarea {
 
 ::selection {
   background: rgba(203, 163, 78, 0.35);
-  color: white;
+  color: inherit;
+}
+
+.surface-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: 0 24px 80px var(--shadow);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+.surface-card {
+  background: var(--surface-strong);
+  border: 1px solid var(--border);
+  box-shadow: 0 18px 50px var(--shadow);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+.surface-soft {
+  background: var(--surface-soft);
+  border: 1px solid var(--border);
+}
+
+.text-muted {
+  color: var(--muted);
+}
+
+.text-accent {
+  color: var(--accent);
 }

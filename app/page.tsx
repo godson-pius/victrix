@@ -72,42 +72,42 @@ const challengePreview = [
 export default function Home() {
   return (
     <div className="flex flex-col">
-      <section className="relative isolate overflow-hidden rounded-[2rem] border border-white/10 bg-black/30 px-6 py-20 shadow-2xl shadow-emerald-950/30 sm:px-10 lg:px-16 lg:py-28">
+      <section className="surface-panel relative isolate overflow-hidden rounded-[2rem] px-6 py-20 shadow-2xl sm:px-10 lg:px-16 lg:py-28">
         <img
-          src="https://images.unsplash.com/flagged/photo-1555251255-e9a095d6eb9d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          src="https://images.unsplash.com/flagged/photo-1555251255-e9a095d6eb9d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fFx8fHx8fA%3D%3D"
           alt="Rwandan children in a community learning environment"
           className="absolute inset-0 h-full w-full object-cover object-center opacity-65"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#04110f]/70 via-[#04110f]/45 to-[#04110f]/25" />
+        <div className="absolute inset-0" style={{ background: "var(--hero-overlay)" }} />
         <div className="relative mx-auto flex max-w-7xl flex-col items-start justify-center gap-8 lg:min-h-[85vh]">
-          <div className="inline-flex items-center gap-2 rounded-full border border-[#cba34e]/40 bg-white/10 px-4 py-2 text-sm text-amber-200 backdrop-blur">
-            <span className="h-2.5 w-2.5 rounded-full bg-[#cba34e]" />
+          <div className="inline-flex items-center gap-2 rounded-full border border-[var(--accent)]/40 bg-[var(--surface-soft)] px-4 py-2 text-sm text-[var(--accent)] backdrop-blur">
+            <span className="h-2.5 w-2.5 rounded-full bg-[var(--accent)]" />
             Shaping the Future of African Progress.
           </div>
           <div className="max-w-3xl space-y-6">
-            <h1 className="text-4xl font-semibold leading-tight sm:text-5xl lg:text-7xl">
+            <h1 className="text-4xl font-semibold leading-tight text-white sm:text-5xl lg:text-7xl">
               Empowering Families. Transforming Communities.
             </h1>
-            <p className="max-w-2xl text-lg leading-8 text-slate-200 sm:text-xl">
+            <p className="max-w-2xl text-lg leading-8 text-slate-100/90 sm:text-xl">
               Through technology, education, agriculture, and community leadership, Victrix is helping vulnerable families in Kicukiro build healthier futures.
             </p>
           </div>
           <div className="flex flex-wrap gap-4">
-            <Link href="#about" className="rounded-full bg-[#cba34e] px-6 py-3 font-medium text-[#04110f] transition hover:-translate-y-1 hover:bg-[#e0b452]">
+            <Link href="#about" className="rounded-full bg-[var(--accent)] px-6 py-3 font-medium text-[var(--accent-contrast)] transition hover:-translate-y-1 hover:bg-[var(--accent-strong)]">
               Learn More
             </Link>
             <Link href="#solution" className="rounded-full border border-white/20 bg-white/10 px-6 py-3 font-medium text-white backdrop-blur transition hover:-translate-y-1 hover:bg-white/20">
               Our Solution
             </Link>
-            <Link href="/team" className="rounded-full border border-[#2f7a5c] bg-[#2f7a5c]/20 px-6 py-3 font-medium text-emerald-100 transition hover:-translate-y-1 hover:bg-[#2f7a5c]/35">
+            <Link href="/team" className="rounded-full border border-[var(--secondary)]/50 bg-[var(--secondary)]/20 px-6 py-3 font-medium text-[var(--foreground)] transition hover:-translate-y-1 hover:bg-[var(--secondary)]/35">
               Meet the Team
             </Link>
           </div>
           <div className="grid w-full gap-4 pt-6 md:grid-cols-2 xl:grid-cols-4">
             {stats.map((stat) => (
-              <div key={stat.label} className="rounded-2xl border border-white/10 bg-white/10 p-4 backdrop-blur">
-                <p className="text-2xl font-semibold text-[#f2d08b]">{stat.value}</p>
-                <p className="mt-1 text-sm text-slate-200">{stat.label}</p>
+              <div key={stat.label} className="surface-soft rounded-2xl p-4">
+                <p className="text-2xl font-semibold text-[var(--accent)]">{stat.value}</p>
+                <p className="mt-1 text-sm text-slate-100/90">{stat.label}</p>
               </div>
             ))}
           </div>
@@ -116,10 +116,10 @@ export default function Home() {
 
       <section id="about" className="mx-auto flex w-full max-w-7xl flex-col gap-8 px-6 py-20 sm:px-10 lg:px-16">
         <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr]">
-          <div className="rounded-[2rem] border border-emerald-900/50 bg-white/10 p-8 shadow-xl shadow-emerald-950/20 backdrop-blur">
-            <p className="text-sm uppercase tracking-[0.3em] text-[#cba34e]">About Victrix</p>
+          <div className="surface-card rounded-[2rem] p-8">
+            <p className="text-sm uppercase tracking-[0.3em] text-[var(--accent)]">About Victrix</p>
             <h2 className="mt-4 text-3xl font-semibold sm:text-4xl">Mission in Motion</h2>
-            <p className="mt-5 text-lg leading-8 text-slate-300">
+            <p className="mt-5 text-lg leading-8 text-[var(--muted)]">
               Our mission is to improve healthcare outcomes in Kigali, specifically Kicukiro, by uniting our passion for women&apos;s empowerment, community development, and agriculture with our skills in technology, innovation, and leadership, elevating the standard of health and empowering families to live healthier and stronger lives.
             </p>
           </div>
@@ -130,8 +130,8 @@ export default function Home() {
               ["Agriculture", "☘"],
               ["Technology", "⌘"],
             ].map(([title, icon]) => (
-              <div key={title} className="rounded-[1.5rem] border border-white/10 bg-[#05211c]/80 p-6 transition hover:-translate-y-1 hover:border-[#cba34e]/50">
-                <div className="text-3xl text-[#cba34e]">{icon}</div>
+              <div key={title} className="surface-soft rounded-[1.5rem] p-6 transition hover:-translate-y-1 hover:border-[var(--accent)]/50">
+                <div className="text-3xl text-[var(--accent)]">{icon}</div>
                 <h3 className="mt-3 text-xl font-semibold">{title}</h3>
               </div>
             ))}
@@ -140,26 +140,26 @@ export default function Home() {
       </section>
 
       <section className="mx-auto w-full max-w-7xl px-6 py-8 sm:px-10 lg:px-16">
-        <div className="grid gap-8 rounded-[2rem] border border-emerald-900/50 bg-[#081d19]/80 p-8 lg:grid-cols-[0.95fr_1.05fr]">
+        <div className="surface-card grid gap-8 rounded-[2rem] p-8 lg:grid-cols-[0.95fr_1.05fr]">
           <div>
-            <p className="text-sm uppercase tracking-[0.3em] text-[#cba34e]">Problem Statement</p>
+            <p className="text-sm uppercase tracking-[0.3em] text-[var(--accent)]">Problem Statement</p>
             <h2 className="mt-4 text-3xl font-semibold sm:text-4xl">Child stunting is rising in Kicukiro.</h2>
-            <p className="mt-5 text-lg leading-8 text-slate-300">
+            <p className="mt-5 text-lg leading-8 text-[var(--muted)]">
               According to the Rwanda Demographic and Health Survey, the child stunting and chronic malnutrition rate in Kicukiro, Kigali, is on the rise—increasing from 10.7% in 2020 to 14.3% in 2025—signaling critical health and nutritional gaps among vulnerable families. This systemic issue persists due to fragmented community health infrastructure and limited women-led agricultural support initiatives.
             </p>
           </div>
-          <div className="rounded-[1.5rem] border border-white/10 bg-gradient-to-br from-[#0b2f28] to-[#03110f] p-6">
+          <div className="rounded-[1.5rem] border border-[var(--border)] bg-gradient-to-br from-[var(--surface)] to-[color:var(--background)] p-6">
             <div className="flex items-start justify-between gap-4">
-              <p className="text-xs uppercase tracking-[0.18em] text-emerald-100/80">Stunting Trend</p>
-              <p className="rounded-full border border-[#cba34e]/30 bg-[#cba34e]/10 px-3 py-1 text-xs font-medium text-[#f2d08b]">
+              <p className="text-xs uppercase tracking-[0.18em] text-[var(--foreground)]/80">Stunting Trend</p>
+              <p className="rounded-full border border-[var(--accent)]/30 bg-[var(--accent)]/10 px-3 py-1 text-xs font-medium text-[var(--accent)]">
                 +{trendIncrease} percentage points
               </p>
             </div>
 
             <div className="mt-5 grid h-56 grid-cols-[auto_1fr] gap-4">
-              <div className="flex h-full flex-col justify-between pb-7 text-[11px] text-slate-400">
+              <div className="flex h-full flex-col justify-between pb-7 text-[11px] text-[var(--muted)]">
                 {[chartMax, chartMax - 5, chartMax - 10, 0].map((tick) => (
-                  <span key={tick}>{tick}%</span>
+                  <span key={tick} className="text-[var(--muted)]">{tick}%</span>
                 ))}
               </div>
 
@@ -179,8 +179,8 @@ export default function Home() {
                         role="img"
                         aria-label={`${point.year} child stunting rate ${point.rate}%`}
                       />
-                      <p className="mt-2 text-sm font-medium text-slate-200">{point.year}</p>
-                      <p className="text-xs text-[#f2d08b]">{point.rate}%</p>
+                      <p className="mt-2 text-sm font-medium text-[var(--foreground)]">{point.year}</p>
+                      <p className="text-xs text-[var(--accent)]">{point.rate}%</p>
                     </div>
                   ))}
                 </div>
@@ -192,9 +192,9 @@ export default function Home() {
 
       <section id="solution" className="mx-auto w-full max-w-7xl px-6 py-20 sm:px-10 lg:px-16">
         <div className="text-center">
-          <p className="text-sm uppercase tracking-[0.3em] text-[#cba34e]">Our Solution</p>
+          <p className="text-sm uppercase tracking-[0.3em] text-[var(--accent)]">Our Solution</p>
           <h2 className="mt-4 text-3xl font-semibold sm:text-4xl">Project Nutri-Action Kicukiro</h2>
-          <p className="mx-auto mt-5 max-w-3xl text-lg leading-8 text-slate-300">
+          <p className="mx-auto mt-5 max-w-3xl text-lg leading-8 text-[var(--muted)]">
             The solution combines multimedia campaigns with practical community workshops to make nutrition education tangible, local, and sustainable.
           </p>
         </div>
@@ -213,17 +213,17 @@ export default function Home() {
               body: "Simple farming workshops teaching families how to grow vegetables using recycled containers, sacks, and small backyard spaces to improve nutrition and food security.",
             },
           ].map((item) => (
-            <div key={item.title} className="rounded-[1.75rem] border border-white/10 bg-white/10 p-8 backdrop-blur transition hover:-translate-y-1 hover:border-[#cba34e]/40">
+            <div key={item.title} className="surface-card rounded-[1.75rem] p-8 transition hover:-translate-y-1 hover:border-[var(--accent)]/40">
               <h3 className="text-2xl font-semibold">{item.title}</h3>
-              <p className="mt-4 leading-8 text-slate-300">{item.body}</p>
+              <p className="mt-4 leading-8 text-[var(--muted)]">{item.body}</p>
             </div>
           ))}
         </div>
       </section>
 
       <section className="mx-auto w-full max-w-7xl px-6 py-8 sm:px-10 lg:px-16">
-        <div className="rounded-[2rem] border border-white/10 bg-[#071a16]/80 p-8">
-          <p className="text-sm uppercase tracking-[0.3em] text-[#cba34e]">How It Works</p>
+        <div className="surface-card rounded-[2rem] p-8">
+          <p className="text-sm uppercase tracking-[0.3em] text-[var(--accent)]">How It Works</p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3 text-center text-sm font-medium sm:text-base">
             {[
               "Videos",
@@ -232,9 +232,9 @@ export default function Home() {
               "Cooking Demonstrations",
               "Healthier Families",
             ].map((step, index) => (
-              <div key={step} className="flex items-center gap-3 rounded-full border border-emerald-900/50 bg-white/5 px-4 py-3">
+              <div key={step} className="flex items-center gap-3 rounded-full border border-[var(--border)] bg-[var(--surface-soft)] px-4 py-3">
                 <span>{step}</span>
-                {index < 5 ? <span className="text-[#cba34e]">→</span> : null}
+                {index < 5 ? <span className="text-[var(--accent)]">→</span> : null}
               </div>
             ))}
           </div>
@@ -244,13 +244,13 @@ export default function Home() {
       <section className="mx-auto w-full max-w-7xl px-6 py-20 sm:px-10 lg:px-16">
         <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
           <div>
-            <p className="text-sm uppercase tracking-[0.3em] text-[#cba34e]">Features</p>
+            <p className="text-sm uppercase tracking-[0.3em] text-[var(--accent)]">Features</p>
             <h2 className="mt-4 text-3xl font-semibold sm:text-4xl">Designed for real community impact.</h2>
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
             {features.map((feature) => (
-              <div key={feature} className="rounded-[1.25rem] border border-white/10 bg-white/10 p-5 backdrop-blur">
-                <p className="text-lg text-slate-200">{feature}</p>
+              <div key={feature} className="surface-soft rounded-[1.25rem] p-5">
+                <p className="text-lg text-[var(--foreground)]">{feature}</p>
               </div>
             ))}
           </div>
@@ -258,28 +258,28 @@ export default function Home() {
       </section>
 
       <section className="mx-auto w-full max-w-7xl px-6 py-8 sm:px-10 lg:px-16">
-        <div className="rounded-[2rem] border border-[#cba34e]/20 bg-gradient-to-br from-[#112724] to-[#071a16] p-8 lg:p-10">
+        <div className="surface-card rounded-[2rem] p-8 lg:p-10">
           <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr]">
             <div>
-              <p className="text-sm uppercase tracking-[0.3em] text-[#cba34e]">Why Victrix?</p>
+              <p className="text-sm uppercase tracking-[0.3em] text-[var(--accent)]">Why Victrix?</p>
               <h2 className="mt-4 text-3xl font-semibold sm:text-4xl">A model built for engagement and lasting change.</h2>
-              <p className="mt-5 text-lg leading-8 text-slate-300">
+              <p className="mt-5 text-lg leading-8 text-[var(--muted)]">
                 We don&apos;t simply teach families—we empower them to lead healthier lives.
               </p>
             </div>
             <div className="grid gap-4 md:grid-cols-2">
-              <div className="rounded-[1.4rem] border border-white/10 bg-[#071512]/80 p-6">
+              <div className="surface-soft rounded-[1.4rem] p-6">
                 <h3 className="text-xl font-semibold">Traditional Programs</h3>
-                <ul className="mt-4 space-y-2 text-slate-300">
+                <ul className="mt-4 space-y-2 text-[var(--muted)]">
                   <li>• Long medical lectures</li>
                   <li>• Passive learning</li>
                   <li>• Low engagement</li>
                   <li>• Limited sustainability</li>
                 </ul>
               </div>
-              <div className="rounded-[1.4rem] border border-[#cba34e]/20 bg-[#0a241d]/80 p-6">
+              <div className="surface-soft rounded-[1.4rem] border-[var(--accent)]/20 p-6">
                 <h3 className="text-xl font-semibold">Victrix</h3>
-                <ul className="mt-4 space-y-2 text-slate-300">
+                <ul className="mt-4 space-y-2 text-[var(--muted)]">
                   <li>• Interactive multimedia</li>
                   <li>• Hands-on cooking</li>
                   <li>• Backyard farming</li>
@@ -293,25 +293,25 @@ export default function Home() {
 
       <section className="mx-auto w-full max-w-7xl px-6 py-20 sm:px-10 lg:px-16">
         <div className="text-center">
-          <p className="text-sm uppercase tracking-[0.3em] text-[#cba34e]">Beneficiaries</p>
+          <p className="text-sm uppercase tracking-[0.3em] text-[var(--accent)]">Beneficiaries</p>
           <h2 className="mt-4 text-3xl font-semibold sm:text-4xl">Centering those most affected.</h2>
         </div>
         <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-5">
           {benefits.map((benefit) => (
-            <div key={benefit.title} className="rounded-[1.5rem] border border-white/10 bg-white/10 p-6 backdrop-blur">
+            <div key={benefit.title} className="surface-card rounded-[1.5rem] p-6">
               <h3 className="text-xl font-semibold">{benefit.title}</h3>
-              <p className="mt-3 leading-7 text-slate-300">{benefit.description}</p>
+              <p className="mt-3 leading-7 text-[var(--muted)]">{benefit.description}</p>
             </div>
           ))}
         </div>
       </section>
 
       <section className="mx-auto w-full max-w-7xl px-6 py-8 sm:px-10 lg:px-16">
-        <div className="rounded-[2rem] border border-white/10 bg-[#071a16]/80 p-8">
-          <p className="text-sm uppercase tracking-[0.3em] text-[#cba34e]">Implementation Timeline</p>
+        <div className="surface-card rounded-[2rem] p-8">
+          <p className="text-sm uppercase tracking-[0.3em] text-[var(--accent)]">Implementation Timeline</p>
           <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-6">
             {timeline.map((step) => (
-              <div key={step} className="rounded-[1.25rem] border border-emerald-900/40 bg-white/5 p-4 text-center text-sm font-medium text-slate-200">
+              <div key={step} className="rounded-[1.25rem] border border-[var(--border)] bg-[var(--surface-soft)] p-4 text-center text-sm font-medium text-[var(--foreground)]">
                 {step}
               </div>
             ))}
@@ -321,35 +321,35 @@ export default function Home() {
 
       <section className="mx-auto w-full max-w-7xl px-6 py-20 sm:px-10 lg:px-16">
         <div className="text-center">
-          <p className="text-sm uppercase tracking-[0.3em] text-[#cba34e]">Impact</p>
+          <p className="text-sm uppercase tracking-[0.3em] text-[var(--accent)]">Impact</p>
           <h2 className="mt-4 text-3xl font-semibold sm:text-4xl">Proof of progress in motion.</h2>
         </div>
         <AnimatedStats />
       </section>
 
       <section className="mx-auto w-full max-w-7xl px-6 py-8 sm:px-10 lg:px-16">
-        <div className="grid gap-8 rounded-[2rem] border border-white/10 bg-[#081d19]/80 p-8 lg:grid-cols-[0.95fr_1.05fr]">
+        <div className="surface-card grid gap-8 rounded-[2rem] p-8 lg:grid-cols-[0.95fr_1.05fr]">
           <div>
-            <p className="text-sm uppercase tracking-[0.3em] text-[#cba34e]">Prototype</p>
+            <p className="text-sm uppercase tracking-[0.3em] text-[var(--accent)]">Prototype</p>
             <h2 className="mt-4 text-3xl font-semibold sm:text-4xl">A compelling digital experience for community learning.</h2>
-            <p className="mt-5 text-lg leading-8 text-slate-300">
+            <p className="mt-5 text-lg leading-8 text-[var(--muted)]">
               The prototype combines mobile-first storytelling, workshop planning, and nutrition education into a smooth experience that can be scaled with local partners.
             </p>
           </div>
           <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
-            <div className="rounded-3xl border border-white/10 bg-linear-to-br from-[#0f342b] to-[#071312] p-4">
-              <div className="rounded-2xl border border-white/10 bg-[#f8f5ea] p-4 text-[#04110f]">
-                <div className="h-2 w-24 rounded-full bg-[#cba34e]" />
+            <div className="rounded-3xl border border-[var(--border)] bg-linear-to-br from-[var(--surface)] to-[color:var(--background)] p-4">
+              <div className="rounded-2xl border border-[var(--border)] bg-[var(--surface-strong)] p-4 text-[var(--foreground)]">
+                <div className="h-2 w-24 rounded-full bg-[var(--accent)]" />
                 <div className="mt-4 space-y-3">
-                  <div className="h-3 w-full rounded-full bg-slate-200" />
-                  <div className="h-3 w-5/6 rounded-full bg-slate-200" />
-                  <div className="h-3 w-4/6 rounded-full bg-slate-200" />
+                  <div className="h-3 w-full rounded-full bg-[var(--surface-soft)]" />
+                  <div className="h-3 w-5/6 rounded-full bg-[var(--surface-soft)]" />
+                  <div className="h-3 w-4/6 rounded-full bg-[var(--surface-soft)]" />
                 </div>
               </div>
             </div>
-            <div className="rounded-[1.5rem] border border-white/10 bg-gradient-to-br from-[#0f342b] to-[#071312] p-4">
-              <div className="rounded-[1rem] border border-white/10 bg-[#f8f5ea] p-4 text-[#04110f]">
-                <div className="mx-auto h-36 w-24 rounded-[1.25rem] border border-slate-300 bg-white p-2">
+            <div className="rounded-[1.5rem] border border-[var(--border)] bg-linear-to-br from-[var(--surface)] to-[color:var(--background)] p-4">
+              <div className="rounded-[1rem] border border-[var(--border)] bg-[var(--surface-strong)] p-4 text-[var(--foreground)]">
+                <div className="mx-auto h-36 w-24 rounded-[1.25rem] border border-[var(--border)] bg-[var(--surface-soft)] p-2">
                   <div className="h-full rounded-[0.8rem] bg-linear-to-br from-[#1f6551] to-[#cba34e]" />
                 </div>
               </div>
@@ -359,26 +359,26 @@ export default function Home() {
       </section>
 
       <section className="mx-auto w-full max-w-7xl px-6 py-20 sm:px-10 lg:px-16">
-        <div className="rounded-4xl border border-white/10 bg-[#081d19]/80 p-8">
+        <div className="surface-card rounded-4xl p-8">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <p className="text-sm uppercase tracking-[0.3em] text-[#cba34e]">E-LAB Challenges</p>
+              <p className="text-sm uppercase tracking-[0.3em] text-[var(--accent)]">E-LAB Challenges</p>
               <h2 className="mt-3 text-3xl font-semibold sm:text-4xl">Three highlights from our challenge journey.</h2>
             </div>
             <Link
               href="/challenges"
-              className="inline-flex w-fit items-center rounded-full border border-[#cba34e]/40 bg-[#cba34e]/10 px-5 py-2.5 text-sm font-medium text-[#f2d08b] transition hover:-translate-y-0.5 hover:bg-[#cba34e]/20"
+              className="inline-flex w-fit items-center rounded-full border border-[var(--accent)]/40 bg-[var(--accent)]/10 px-5 py-2.5 text-sm font-medium text-[var(--accent)] transition hover:-translate-y-0.5 hover:bg-[var(--accent)]/20"
             >
               View All Challenges
             </Link>
           </div>
           <div className="mt-8 grid gap-6 lg:grid-cols-3">
             {challengePreview.map((challenge) => (
-              <div key={challenge.title} className="rounded-[1.4rem] border border-white/10 bg-white/10 p-6 backdrop-blur">
+              <div key={challenge.title} className="surface-soft rounded-[1.4rem] p-6">
                 <h3 className="text-xl font-semibold">{challenge.title}</h3>
-                <p className="mt-3 text-slate-300">{challenge.description}</p>
-                <p className="mt-4 text-sm text-slate-400">Research findings: {challenge.findings}</p>
-                <p className="mt-2 text-sm text-emerald-200">Key insight: {challenge.insight}</p>
+                <p className="mt-3 text-[var(--muted)]">{challenge.description}</p>
+                <p className="mt-4 text-sm text-[var(--muted)]">Research findings: {challenge.findings}</p>
+                <p className="mt-2 text-sm text-[var(--secondary)]">Key insight: {challenge.insight}</p>
               </div>
             ))}
           </div>
