@@ -85,10 +85,10 @@ export default function Home() {
             Shaping the Future of African Progress.
           </div>
           <div className="max-w-3xl space-y-6">
-            <h1 className="text-4xl font-semibold leading-tight text-white sm:text-5xl lg:text-7xl">
+            <h1 className="text-4xl font-semibold leading-tight text-[var(--foreground)] sm:text-5xl lg:text-7xl">
               Empowering Families. Transforming Communities.
             </h1>
-            <p className="max-w-2xl text-lg leading-8 text-slate-100/90 sm:text-xl">
+            <p className="max-w-2xl text-lg leading-8 text-[var(--muted)] sm:text-xl">
               Through technology, education, agriculture, and community leadership, Victrix is helping vulnerable families in Kicukiro build healthier futures.
             </p>
           </div>
@@ -96,7 +96,7 @@ export default function Home() {
             <Link href="#about" className="rounded-full bg-[var(--accent)] px-6 py-3 font-medium text-[var(--accent-contrast)] transition hover:-translate-y-1 hover:bg-[var(--accent-strong)]">
               Learn More
             </Link>
-            <Link href="#solution" className="rounded-full border border-white/20 bg-white/10 px-6 py-3 font-medium text-white backdrop-blur transition hover:-translate-y-1 hover:bg-white/20">
+            <Link href="#solution" className="rounded-full border border-[var(--border)] bg-[var(--surface-soft)] px-6 py-3 font-medium text-[var(--foreground)] backdrop-blur transition hover:-translate-y-1 hover:bg-[var(--surface)]">
               Our Solution
             </Link>
             <Link href="/team" className="rounded-full border border-[var(--secondary)]/50 bg-[var(--secondary)]/20 px-6 py-3 font-medium text-[var(--foreground)] transition hover:-translate-y-1 hover:bg-[var(--secondary)]/35">
@@ -107,7 +107,7 @@ export default function Home() {
             {stats.map((stat) => (
               <div key={stat.label} className="surface-soft rounded-2xl p-4">
                 <p className="text-2xl font-semibold text-[var(--accent)]">{stat.value}</p>
-                <p className="mt-1 text-sm text-slate-100/90">{stat.label}</p>
+                <p className="mt-1 text-sm text-[var(--muted)]">{stat.label}</p>
               </div>
             ))}
           </div>
